@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -25,6 +26,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line 
+" Install YouCompleteMe instructions below:
+" http://unixnme.blogspot.com/2017/03/how-to-install-youcompleteme-vim-plugin.html
+" Custom vim line
+" https://dougblack.io/words/a-good-vimrc.html
+
+
 
 set number " Line numbers
 set mouse=a  " Enable mouse usage (all modes)
@@ -39,6 +46,6 @@ set hlsearch
 " j k esc key strokes
 inoremap jk <esc>
 
-
-
-
+" set color scheme
+" https://github.com/flazz/vim-colorschemes
+colorscheme molokai
