@@ -49,7 +49,7 @@ inoremap jk <esc>
 
 " set color scheme
 " https://github.com/flazz/vim-colorschemes
-colorscheme monokai
+colorscheme monokaidark
 
 " control p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
