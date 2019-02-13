@@ -69,6 +69,8 @@ map <silent> <C-o> :NERDTreeToggle<CR>
 " Color scheme
 set background=dark    " Setting dark mode
 colorscheme gruvbox
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 " Line numbers
 set number
