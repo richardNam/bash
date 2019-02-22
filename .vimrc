@@ -57,10 +57,13 @@ let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = "left"
 
 " Shows the method doc string
-let g:jedi#show_call_signatures = "0"
+let g:jedi#show_call_signatures = 0
 
 " Turn on and off Jedi
 let g:jedi#completions_enabled = 1
+
+" Turn on and off the scratch/preview
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 " Keyboard shortcut for nerdtree
 :nnoremap <C-o> :NERDTree<CR>
@@ -73,8 +76,14 @@ colorscheme gruvbox
 " Line numbers
 set number
 
-" vim splits, tab short cuts, https://www.techrepublic.com/blog/linux-and-open-source/use-tabs-to-open-multiple-files-in-vim/
+" vim splits, tab short cuts, 
+" https://www.techrepublic.com/blog/linux-and-open-source/
+" use-tabs-to-open-multiple-files-in-vim/
 map <C-d><up> :tabr<cr>
 map <C-d><down> :tabl<cr>
 map <C-d><left> :tabp<cr>
 map <C-d><right> :tabn<cr>
+
+" Over the line (100 char)
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
