@@ -89,3 +89,7 @@ map <C-d><right> :tabn<cr>
 " Over the line (100 char)
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+" turn of pydoc
+set completeopt-=preview
+
