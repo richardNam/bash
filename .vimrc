@@ -46,6 +46,9 @@ Plug 'morhetz/gruvbox'
 " ctrl p, 
 Plug 'kien/ctrlp.vim'
 
+" clean up white space
+Plug 'bronson/vim-trailing-whitespace'
+
 " Initialize plugin system
 call plug#end()
 
@@ -57,13 +60,11 @@ let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = "left"
 
 " Shows the method doc string
-let g:jedi#show_call_signatures = 0
+let g:jedi#show_call_signatures = "0"
 
 " Turn on and off Jedi
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 
-" Turn on and off the scratch/preview
-let g:SuperTabClosePreviewOnPopupClose = 1
 
 " Keyboard shortcut for nerdtree
 :nnoremap <C-o> :NERDTree<CR>
@@ -86,10 +87,21 @@ map <C-d><down> :tabl<cr>
 map <C-d><left> :tabp<cr>
 map <C-d><right> :tabn<cr>
 
-" Over the line (100 char)
+" highlights to red when past the 80 character limit
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%100v.\+/
 
-" turn of pydoc
-set completeopt-=preview
+" allows backspace to move over line break
+set backspace=indent,eol,start
 
+" Press Space to turn off highlighting and clear any message already
+" displayed.
+set hlsearch 
+nnoremap <Space> :set hlsearch!<CR>
+
+" new escape double tap
+inoremap `` <esc>
+
+" highlights trailing white spaces
+highlight RedundantSpaces ctermbg=red guibg=red 
+match RedundantSpaces /\s\+$/
