@@ -1,4 +1,4 @@
-" plugin manager
+"plugin manager
 " https://github.com/junegunn/vim-plug
 
 " Specify a directory for plugins
@@ -43,11 +43,17 @@ Plug 'ervandew/supertab'
 " gruvbox, https://github.com/morhetz/gruvbox color scheme
 Plug 'morhetz/gruvbox'
 
-" ctrl p, 
+" ctrl p
 Plug 'kien/ctrlp.vim'
 
 " clean up white space
 Plug 'bronson/vim-trailing-whitespace'
+
+" vim color scheme danilo-augusto/vim-afterglow
+Plug 'danilo-augusto/vim-afterglow'
+
+" airline vim-airline/vim-airline
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
@@ -65,21 +71,26 @@ let g:jedi#show_call_signatures = "0"
 " Turn on and off Jedi
 let g:jedi#completions_enabled = 0
 
+" Vim color
+let g:afterglow_blackout=1
+let g:airline_theme='afterglow'
 
 " Keyboard shortcut for nerdtree
 :nnoremap <C-o> :NERDTree<CR>
 map <silent> <C-o> :NERDTreeToggle<CR>
 
 " Color scheme
-set background=dark    " Setting dark mode
-colorscheme gruvbox
+" set background=dark    " Setting dark mode
+colorscheme afterglow
+
+" colorscheme gruvbox
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 " Line numbers
 set number
 
-" vim splits, tab short cuts, 
+" vim splits, tab short cuts,
 " https://www.techrepublic.com/blog/linux-and-open-source/
 " use-tabs-to-open-multiple-files-in-vim/
 map <C-d><up> :tabr<cr>
@@ -96,7 +107,7 @@ set backspace=indent,eol,start
 
 " Press Space to turn off highlighting and clear any message already
 " displayed.
-set hlsearch 
+set hlsearch
 nnoremap <Space> :set hlsearch!<CR>
 
 " new escape double tap
