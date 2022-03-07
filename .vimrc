@@ -1,62 +1,31 @@
-"plugin manager
-" https://github.com/junegunn/vim-plug
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
+call vundle#begin()
 
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plugin 'davidhalter/jedi-vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'danilo-augusto/vim-afterglow'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ervandew/supertab'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-" autocomplete, https://github.com/davidhalter/jedi-vim
-Plug 'davidhalter/jedi-vim'
-
-" supertab, https://github.com/ervandew/supertab
-Plug 'ervandew/supertab'
-
-" gruvbox, https://github.com/morhetz/gruvbox color scheme
-Plug 'morhetz/gruvbox'
-
-" ctrl p
-Plug 'kien/ctrlp.vim'
-
-" clean up white space
-Plug 'bronson/vim-trailing-whitespace'
-
-" vim color scheme danilo-augusto/vim-afterglow
-Plug 'danilo-augusto/vim-afterglow'
-
-" airline vim-airline/vim-airline
-Plug 'vim-airline/vim-airline'
-
-" Initialize plugin system
-call plug#end()
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Plugin Options
 " Jedi use tabs to move between options
@@ -75,12 +44,19 @@ let g:jedi#completions_enabled = 0
 let g:afterglow_blackout=1
 let g:airline_theme='afterglow'
 
+" Dropdown, currently hidden
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" control p
+let g:ctrlp_working_path_mode = 'r'
+
 " Keyboard shortcut for nerdtree
 :nnoremap <C-o> :NERDTree<CR>
 map <silent> <C-o> :NERDTreeToggle<CR>
 
 " Color scheme
-" set background=dark    " Setting dark mode
+set background=light    " Setting dark mode
+syntax enable
 colorscheme afterglow
 
 " colorscheme gruvbox
@@ -114,5 +90,25 @@ nnoremap <Space> :set hlsearch!<CR>
 inoremap `` <esc>
 
 " highlights trailing white spaces
-highlight RedundantSpaces ctermbg=red guibg=red 
+highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$/
+
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set smarttab
+set autoindent
+set cindent
+filetype indent on
+
+
+" -------------------------------------------------------------------------------------------------
+" Notes
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
