@@ -11,12 +11,12 @@
         "when": "terminalFocus",
     },
     {
-        "key": "cmd+]",
+        "key": "cmd+[ArrowRight]",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus"
     },
     {
-        "key": "cmd+[",
+        "key": "cmd+[ArrowLeft]",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus"
     }
