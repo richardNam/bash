@@ -22,6 +22,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
+Plugin 'kkoomen/vim-doge'
+Plugin 'dense-analysis/ale'
 
 
 call vundle#end()            " required
@@ -50,8 +53,12 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 " control p
 let g:ctrlp_working_path_mode = 'r'
 
+" doge docstring
+let g:doge_doc_standard_python = 'numpy'
+nnoremap :pydoc :DogeGenerate
+
 " Keyboard shortcut for nerdtree
-:nnoremap <C-o> :NERDTree<CR>
+nnoremap <C-o> :NERDTree<CR>
 map <silent> <C-o> :NERDTreeToggle<CR>
 
 " Color scheme
@@ -85,9 +92,6 @@ set backspace=indent,eol,start
 " displayed.
 set hlsearch
 nnoremap <Space> :set hlsearch!<CR>
-
-" new escape double tap
-inoremap `` <esc>
 
 " highlights trailing white spaces
 highlight RedundantSpaces ctermbg=red guibg=red
